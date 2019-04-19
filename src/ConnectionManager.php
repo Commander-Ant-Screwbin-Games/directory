@@ -22,7 +22,7 @@ class ConnectionManager implements ConnectionManagerInterface
     /** @var bool $exceptions Should we utilize exceptions. */
     protected $exceptions = \true;
 
-    /** @var resource|null $connectionString The pdo connection string. */
+    /** @var mixed $connectionString The pdo connection string. */
     protected $connectionString = \null;
 
     /**
@@ -77,9 +77,9 @@ class ConnectionManager implements ConnectionManagerInterface
      *
      * @throws Exception\ConnectionClosedException If the connection manager has a closed connection.
      *
-     * @return resource The connection string.
+     * @return mixed The connection string.
      */
-    public function getConnectionString(): resource
+    public function getConnectionString()
     {
         if (\is_null($this->connectionString)) {
             if ($this->exceptions) {
