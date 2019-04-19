@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 /**
- * Kooser PasswordLock - Secure your password using password lock.
+ * Kooser Directory - Manage your database with complete ease.
  * 
- * @package Kooser\PasswordLock.
+ * @package Kooser\Directory.
  */
  
 namespace Kooser\Directory;
