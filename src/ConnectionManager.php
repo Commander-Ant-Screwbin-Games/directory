@@ -13,7 +13,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 /**
  * Create a new database connection.
  */
-class ConnectionManager implements ConnectionInterface
+class ConnectionManager implements ConnectionManagerInterface
 {
 
     /** @var array $options The database connection options. */
