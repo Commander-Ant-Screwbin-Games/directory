@@ -63,6 +63,7 @@ class ConnectionManager implements ConnectionManagerInterface
     public function establishConnection(): void
     {
         $dsn = $this->options['database_dsn'];
+        $driver = '';
         if (\strpos($dsn, ':') !== \false) {
             $driver = \explode(':', $dsn)[0];
         }
