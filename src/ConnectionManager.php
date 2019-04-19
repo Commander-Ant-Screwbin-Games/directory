@@ -112,6 +112,16 @@ class ConnectionManager implements ConnectionManagerInterface
     }
 
     /**
+     * Return the current connection options.
+     *
+     * @return array The connection options.
+     */
+    public function getConnectionOptions(): array
+    {
+        return $this->options;
+    }
+
+    /**
      * Configure the hasher options.
      *
      * @param OptionsResolver The symfony options resolver.
