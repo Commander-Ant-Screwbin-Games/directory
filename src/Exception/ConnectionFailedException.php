@@ -1,4 +1,4 @@
-?php
+<?php
 declare(strict_types=1);
 /**
  * Kooser Directory - Manage your database with complete ease.
