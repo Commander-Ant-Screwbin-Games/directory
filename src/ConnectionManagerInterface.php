@@ -11,6 +11,6 @@ namespace Kooser\Directory;
 /**
  * The connection manager interface.
  */
-class ConnectionManagerInterface
+interface ConnectionManagerInterface
 {
 }
