@@ -8,7 +8,6 @@ matrix:
         - php: nightly
 services:
     - postgresql
-    - mongodb
     - mysql
 install:
     - travis_retry composer install --no-interaction
