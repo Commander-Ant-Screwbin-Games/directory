@@ -87,7 +87,7 @@ class ConnectionManager implements ConnectionManagerInterface
             throw new Exception\ConnectionFailedException('The connection manager could not open the connection.');
         }
         if (!empty($postQuery)) {
-            $pdo->query($postQuery);
+            $this->connectionString->query($postQuery);
         }
     }
 
