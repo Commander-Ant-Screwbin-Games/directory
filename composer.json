@@ -1,0 +1,26 @@
+{
+    "name": "kooser/directory",
+    "description": "Manage your database with complete ease.",
+    "homepage": "https://kooser6.github.io/Directory/",
+    "keywords": [],
+    "license": "MIT",
+    "require": {
+        "php": ">=7.3",
+        "symfony/options-resolver": "^4.2",
+        "symfony/polyfill-php72": "^1.10",
+        "symfony/polyfill-php73": "^1.10"
+    },
+    "require-dev": {
+        "vimeo/psalm": "^3",
+        "phpunit/phpunit": "^8.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kooser\\Directory\\": "./src"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true
+    },
+    "prefer-stable": true
+}
