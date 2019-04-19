@@ -62,7 +62,7 @@ class ConnectionManager implements ConnectionManagerInterface
      */
     public function establishConnection(): void
     {
-        $dns = $this->options['database_dsn'];
+        $dsn = $this->options['database_dsn'];
         if (\strpos($dsn, ':') !== \false) {
             $driver = \explode(':', $dsn)[0];
         }
@@ -125,9 +125,9 @@ class ConnectionManager implements ConnectionManagerInterface
             'database_pass' => '',
             'database_options' => [],
         ]);
-        $resolver->setRequired('database_dns');
+        $resolver->setRequired('database_dsn');
         $resolver->setRequired('database_user');
-        $resolver->setAllowedTypes('database_dns', 'string');
+        $resolver->setAllowedTypes('database_dsn', 'string');
         $resolver->setAllowedTypes('database_user', 'string');
         $resolver->setAllowedTypes('database_pass', 'string');
         $resolver->setAllowedTypes('database_options', 'array');
