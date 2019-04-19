@@ -13,7 +13,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 /**
  * Create a new database connection.
  */
-class Connection implements ConnectionInterface
+class ConnectionManager implements ConnectionInterface
 {
 
     /** @var array $options The database connection options. */
@@ -21,6 +21,9 @@ class Connection implements ConnectionInterface
 
     /** @var bool $exceptions Should we utilize exceptions. */
     protected $exceptions = \true;
+
+    /** @var resource|null $connectionString The pdo connection string. */
+    protected $connectionString = \null;
 
     /**
      * Construct a new database connection.
@@ -51,6 +54,44 @@ class Connection implements ConnectionInterface
     }
 
     /**
+     * Establish a new database connection.
+     *
+     * @throws ConnectionFailedException If the connection manager could not open the connection.
+     *
+     * @return void Returns nothing.
+     */
+    public function establishConnection(): void
+    {
+        try {
+            $this->connectionString = new \PDO($this->options['database_dsn'],
+                                               $this->options['database_user'],
+                                               $this->options['database_pass'],
+                                               $this->options['database_options']);
+        } catch (\PDOException $e) {
+            throw new Exception\ConnectionFailedException('The connection manager could not open the connection.');
+        }
+    }
+
+    /**
+     * Get the connection string.
+     *
+     * @throws Exception\ConnectionClosedException If the connection manager has a closed connection.
+     *
+     * @return resource The connection string.
+     */
+    public function getConnectionString(): resource
+    {
+        if (\is_null($this->connectionString)) {
+            if ($this->exceptions) {
+                throw new Exception\ConnectionClosedException('The connection manager has a closed connection.');
+            } else {
+                \trigger_error('The connection manager has a closed connection.', \E_USER_ERROR);
+            }
+        }
+        return $this->connectionString;
+    }
+
+    /**
      * Configure the hasher options.
      *
      * @param OptionsResolver The symfony options resolver.
@@ -62,6 +103,7 @@ class Connection implements ConnectionInterface
         $resolver->setDefaults([
             'database_port' => 3306,
             'database_pass' => '',
+            'database_options' => [],
         ]);
         $resolver->setRequired('database_dns');
         $resolver->setRequired('database_name');
@@ -70,6 +112,7 @@ class Connection implements ConnectionInterface
         $resolver->setAllowedTypes('database_name', 'string');
         $resolver->setAllowedTypes('database_user', 'string');
         $resolver->setAllowedTypes('database_pass', 'string');
+        $resolver->setAllowedTypes('database_options', 'array');
         $resolver->setAllowedTypes('database_port', 'int');
     }
 }
