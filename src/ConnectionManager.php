@@ -62,6 +62,22 @@ class ConnectionManager implements ConnectionManagerInterface
      */
     public function establishConnection(): void
     {
+        $dns = $this->options['database_dsn'];
+        if (\strpos($dsn, ':') !== \false) {
+            $driver = \explode(':', $dsn)[0];
+        }
+        /** @var string $postQuery */
+        $postQuery = '';
+        switch ($driver) {
+            case 'mysql':
+                if (\strpos($dsn, ';charset=') === \false) {
+                    $dsn .= ';charset=utf8mb4';
+                }
+                break;
+            case 'pgsql':
+                $postQuery = "SET NAMES 'UNICODE'";
+                break;
+        }
         try {
             $this->connectionString = new \PDO($this->options['database_dsn'],
                                                $this->options['database_user'],
@@ -69,6 +85,9 @@ class ConnectionManager implements ConnectionManagerInterface
                                                $this->options['database_options']);
         } catch (\PDOException $e) {
             throw new Exception\ConnectionFailedException('The connection manager could not open the connection.');
+        }
+        if (!empty($postQuery)) {
+            $pdo->query($postQuery);
         }
     }
 
@@ -102,14 +121,13 @@ class ConnectionManager implements ConnectionManagerInterface
     {
         $resolver->setDefaults([
             'database_port' => 3306,
+            'database_user' => '',
             'database_pass' => '',
             'database_options' => [],
         ]);
         $resolver->setRequired('database_dns');
-        $resolver->setRequired('database_name');
         $resolver->setRequired('database_user');
         $resolver->setAllowedTypes('database_dns', 'string');
-        $resolver->setAllowedTypes('database_name', 'string');
         $resolver->setAllowedTypes('database_user', 'string');
         $resolver->setAllowedTypes('database_pass', 'string');
         $resolver->setAllowedTypes('database_options', 'array');
