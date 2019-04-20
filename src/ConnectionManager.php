@@ -157,17 +157,14 @@ class ConnectionManager implements ConnectionManagerInterface
     private function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'database_port' => 3306,
             'database_user' => '',
             'database_pass' => '',
             'database_options' => [],
         ]);
         $resolver->setRequired('database_dsn');
-        $resolver->setRequired('database_user');
         $resolver->setAllowedTypes('database_dsn', 'string');
         $resolver->setAllowedTypes('database_user', 'string');
         $resolver->setAllowedTypes('database_pass', 'string');
         $resolver->setAllowedTypes('database_options', 'array');
-        $resolver->setAllowedTypes('database_port', 'int');
     }
 }
