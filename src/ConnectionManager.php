@@ -122,6 +122,16 @@ class ConnectionManager implements ConnectionManagerInterface
     }
 
     /**
+     * Close the connection string.
+     *
+     * @return void Returns nothing.
+     */
+    public function closeConnectionString(): void
+    {
+        $this->connectionString = \null;
+    }
+
+    /**
      * Configure the hasher options.
      *
      * @param OptionsResolver The symfony options resolver.
