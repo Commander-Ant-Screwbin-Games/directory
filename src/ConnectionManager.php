@@ -16,6 +16,9 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 class ConnectionManager implements ConnectionManagerInterface
 {
 
+    /** @var string $driver The database driver. */
+    private $driver = '';
+
     /** @var array $options The database connection options. */
     private $options = [];
 
@@ -77,13 +80,12 @@ class ConnectionManager implements ConnectionManagerInterface
     public function establishConnection(): void
     {
         $dsn = $this->options['database_dsn'];
-        $driver = '';
         if (\strpos($dsn, ':') !== \false) {
-            $driver = \explode(':', $dsn)[0];
+            $this->driver = \explode(':', $dsn)[0];
         }
         /** @var string $postQuery */
         $postQuery = '';
-        switch ($driver) {
+        switch ($this->driver) {
             case 'mysql':
                 if (\strpos($dsn, ';charset=') === \false) {
                     $dsn .= ';charset=utf8mb4';
@@ -126,13 +128,13 @@ class ConnectionManager implements ConnectionManagerInterface
     }
 
     /**
-     * Return the current connection options.
+     * Return the database driver.
      *
-     * @return array The connection options.
+     * @return string The database driver.
      */
-    public function getConnectionOptions(): array
+    public function getDriver(): string
     {
-        return $this->options;
+        return $this->driver;
     }
 
     /**
