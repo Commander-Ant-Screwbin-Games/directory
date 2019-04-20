@@ -17,7 +17,7 @@ class DatabaseHandler implements ConnectionManagerInterface
 {
 
     /** @var \Kooser\Directory\ConnectionManager $connectionManager The connection manager. */
-    protected $connectionString = \null;
+    protected $connectionManager = \null;
 
     /**
      * Construct a new database handler.
