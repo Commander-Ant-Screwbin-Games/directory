@@ -13,7 +13,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 /**
  * Create a new database handler.
  */
-class ConnectionManager implements ConnectionManagerInterface
+class DatabaseHandler implements ConnectionManagerInterface
 {
 
     /** @var \Kooser\Directory\ConnectionManager $connectionManager The connection manager. */
