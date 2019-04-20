@@ -35,7 +35,7 @@ class ConnectionManager implements ConnectionManagerInterface
      */
     public function __construct(array $options = [], bool $exceptions = \true)
     {
-        $this->exceptions = $exceptions;
+        $this->setExceptions($exceptions);
         $this->setOptions($options);
     }
 
@@ -44,13 +44,27 @@ class ConnectionManager implements ConnectionManagerInterface
      *
      * @param array $options The database connection options.
      *
-     * @return void Returns nothing.
+     * @return \Kooser\Directory\ConnectionManagerInterface Returns the connection manager.
      */
-    public function setOptions(array $options = []): void
+    public function setOptions(array $options = []): ConnectionManagerInterface
     {
         $resolver = new OptionsResolver();
         $this->configureOptions($resolver);
         $this->options = $resolver->resolve($options);
+        return $this;
+    }
+
+    /**
+     * Set the exceptions param.
+     *
+     * @param bool $exceptions Should we utilize exceptions.
+     *
+     * @return \Kooser\Directory\ConnectionManagerInterface Returns the connection manager.
+     */
+    public function setExceptions(bool $exceptions = \true): ConnectionManagerInterface
+    {
+        $this->exceptions = $exceptions;
+        return $this;
     }
 
     /**
