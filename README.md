@@ -3,7 +3,7 @@
 
 # Directory
 
-A wrapper for the PDO class that ensures secure connections.
+A PDO wrapper for secure connections.
 
 ## Installation
 
