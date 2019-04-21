@@ -1,6 +1,6 @@
 {
     "name": "kooser/directory",
-    "description": "A wrapper for the PDO class that ensures secure connections.",
+    "description": "A PDO wrapper for secure connections.",
     "homepage": "https://kooser6.github.io/Directory/",
     "keywords": [],
     "license": "MIT",
