@@ -3,7 +3,7 @@
 
 # Directory
 
-Manage your database with a secure by default connection manager.
+A wrapper for the PDO class that ensures secure connections.
 
 ## Installation
 
