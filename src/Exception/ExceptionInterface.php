@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 /**
- * Kooser Directory - Manage your database with complete ease.
+ * Kooser Directory - A PDO wrapper for secure connections.
  * 
  * @package Kooser\Directory.
  */
