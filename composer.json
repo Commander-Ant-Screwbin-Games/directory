@@ -1,14 +1,12 @@
 {
     "name": "kooser/directory",
-    "description": "Manage your database with complete ease.",
+    "description": "A wrapper for the PDO class that ensures secure connections.",
     "homepage": "https://kooser6.github.io/Directory/",
     "keywords": [],
     "license": "MIT",
     "require": {
         "php": ">=7.3",
-        "symfony/cache": "^4.2",
         "symfony/options-resolver": "^4.2",
-        "symfony/polyfill-apcu": "^1.11",
         "symfony/polyfill-php72": "^1.11",
         "symfony/polyfill-php73": "^1.11"
     },
