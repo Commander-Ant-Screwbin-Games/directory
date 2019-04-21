@@ -3,7 +3,7 @@
 
 # Directory
 
-Manage your database with complete ease.
+Manage your database with a secure by default connection manager.
 
 ## Installation
 
