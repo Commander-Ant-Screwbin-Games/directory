@@ -9,6 +9,8 @@ matrix:
 services:
     - postgresql
     - mysql
+before_install:
+    - mysql -e 'CREATE DATABASE travis_ci_test;'
 install:
     - travis_retry composer install --no-interaction
     - wget -c -nc --retry-connrefused --tries=0 https://github.com/php-coveralls/php-coveralls/releases/download/v2.1.0/php-coveralls.phar
@@ -17,6 +19,7 @@ install:
 after_success:
     - travis_retry php php-coveralls.phar -v
 before_script:
+    - psql -c 'create database travis_ci_test;' -U postgres
     - mkdir -p build/logs
     - ls -al
 script:
