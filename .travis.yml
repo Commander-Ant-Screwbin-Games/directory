@@ -7,7 +7,6 @@ matrix:
     allow_failures:
         - php: nightly
 services:
-    - postgresql
     - mysql
 before_install:
     - mysql -e 'CREATE DATABASE travis_ci_test;'
@@ -19,7 +18,6 @@ install:
 after_success:
     - travis_retry php php-coveralls.phar -v
 before_script:
-    - psql -c 'create database travis_ci_test;' -U postgres
     - mkdir -p build/logs
     - ls -al
 script:
