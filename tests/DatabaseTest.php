@@ -10,6 +10,9 @@ declare(strict_types=1);
 namespace Directory\Test;
 
 use Kooser\Directory\ConnectionManager;
+use Kooser\Directory\Exception\ConnectionClosedException;
+use Kooser\Directory\Exception\ConnectionFailedException;
+
 use PHPUnit\Framework\TestCase;
 
 /**
