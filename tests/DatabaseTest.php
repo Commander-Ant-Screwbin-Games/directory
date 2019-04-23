@@ -105,7 +105,7 @@ class DatabaseTest extends TestCase
     /**
      * @return void Returns nothing.
      */
-    public function testConnectionStringWithNoOpenConnectionWithTrigger(): void
+    public function testConnectionStringWithOpenConnection(): void
     {
         $dbh = new ConnectionManager([
             'database_dsn'  => 'mysql:host=localhost;dbname=travis_ci_test',
