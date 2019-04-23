@@ -45,4 +45,33 @@ class DatabaseTest extends TestCase
         $dbh->establishConnection();
         $this->assertTrue(\true);
     }
+
+    /**
+     * @return void Returns nothing.
+     */
+    public function testCloseConnectionAndGetDriver(): void
+    {
+        $dbh = new ConnectionManager([
+            'database_dsn'  => 'mysql:host=localhost;dbname=travis_ci_test',
+            'database_user' => 'travis'
+        ]);
+        $this->assertTrue(\true);
+        $dbh->establishConnection();
+        $this->assertTrue(\true);
+        $this->assertTrue(($dbh->getDriver == 'mysql'))
+        $dbh->closeConnection();
+    }
+
+    /**
+     * @return void Returns nothing.
+     */
+    public function testBadConnectionDetails(): void
+    {
+        $this->expectException(ConnectionFailedException::class);
+        $dbh = new ConnectionManager([
+            'database_dsn'  => 'mysql:host=localhost;dbname=travis_ci_test',
+            'database_user' => 'kooser'
+        ]);
+        $dbh->establishConnection();
+    }
 }
