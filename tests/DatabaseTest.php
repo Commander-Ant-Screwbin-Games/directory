@@ -75,45 +75,4 @@ class DatabaseTest extends TestCase
         ]);
         $dbh->establishConnection();
     }
-
-    /**
-     * @return void Returns nothing.
-     */
-    public function testConnectionStringWithNoOpenConnection(): void
-    {
-        $this->expectException(ConnectionClosedException::class);
-        $dbh = new ConnectionManager([
-            'database_dsn'  => 'mysql:host=localhost;dbname=travis_ci_test',
-            'database_user' => 'travis'
-        ]);
-        $conn = $dbh->getConnectionString();
-    }
-
-    /**
-     * @return void Returns nothing.
-     */
-    public function testConnectionStringWithNoOpenConnectionWithTrigger(): void
-    {
-        $this->expectException(Error::class);
-        $dbh = new ConnectionManager([
-            'database_dsn'  => 'mysql:host=localhost;dbname=travis_ci_test',
-            'database_user' => 'travis'
-        ], \false);
-        $conn = $dbh->getConnectionString();
-    }
-
-    /**
-     * @return void Returns nothing.
-     */
-    public function testConnectionStringWithOpenConnection(): void
-    {
-        $dbh = new ConnectionManager([
-            'database_dsn'  => 'mysql:host=localhost;dbname=travis_ci_test',
-            'database_user' => 'travis'
-        ]);
-        $this->assertTrue(\true);
-        $dbh->establishConnection();
-        $this->assertTrue(\true);
-        $conn = $dbh->getConnectionString();
-    }
 }
