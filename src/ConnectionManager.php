@@ -26,7 +26,7 @@ class ConnectionManager implements ConnectionManagerInterface
     protected $exceptions = \true;
 
     /** @var mixed $connectionString The pdo connection string. */
-    protected $connectionString = \null;
+    public $connectionString = \null;
 
     /**
      * Construct a new database connection.
@@ -106,25 +106,6 @@ class ConnectionManager implements ConnectionManagerInterface
         if (!empty($postQuery)) {
             $this->connectionString->query($postQuery);
         }
-    }
-
-    /**
-     * Get the connection string.
-     *
-     * @throws Exception\ConnectionClosedException If the connection manager has a closed connection.
-     *
-     * @return mixed The connection string.
-     */
-    public function getConnectionString()
-    {
-        if (\is_null($this->connectionString)) {
-            if ($this->exceptions) {
-                throw new Exception\ConnectionClosedException('The connection manager has a closed connection.');
-            } else {
-                \trigger_error('The connection manager has a closed connection.', \E_USER_ERROR);
-            }
-        }
-        return $this->connectionString;
     }
 
     /**
