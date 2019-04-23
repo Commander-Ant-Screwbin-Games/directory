@@ -26,7 +26,7 @@ class DatabaseTest extends TestCase
     public function testConstructor(): void
     {
         $dbh = new ConnectionManager([
-            'database_dns'  => 'mysql:host=localhost;dbname=test',
+            'database_dsn'  => 'mysql:host=localhost;dbname=test',
             'database_user' => 'travis'
         ]);
         $this->assertTrue(\true);
