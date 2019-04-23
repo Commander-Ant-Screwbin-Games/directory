@@ -10,10 +10,8 @@ namespace Directory\Test;
 
 use Kooser\Directory\ConnectionManager;
 use Kooser\Directory\Exception\ConnectionClosedException;
-use Kooser\Directory\Exception\ConnectionFailedException;
 
 use PHPUnit\Framework\TestCase;
-use PHPUnit\Framework\Error\Error;
 
 /**
  * Test connecion manager functionality.
