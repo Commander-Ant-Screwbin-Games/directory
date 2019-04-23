@@ -76,6 +76,8 @@ class ConnectionManager implements ConnectionManagerInterface
      * @throws ConnectionFailedException If the connection manager could not open the connection.
      *
      * @return void Returns nothing.
+     *
+     * @codeCoverageIgnore
      */
     public function establishConnection(): void
     {
