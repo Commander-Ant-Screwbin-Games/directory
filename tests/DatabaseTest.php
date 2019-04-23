@@ -31,4 +31,18 @@ class DatabaseTest extends TestCase
         ]);
         $this->assertTrue(\true);
     }
+
+    /**
+     * @return void Returns nothing.
+     */
+    public function testSuccessfulConnection(): void
+    {
+        $dbh = new ConnectionManager([
+            'database_dsn'  => 'mysql:host=localhost;dbname=travis_ci_test',
+            'database_user' => 'travis'
+        ]);
+        $this->assertTrue(\true);
+        $dbh->establishConnection();
+        $this->assertTrue(\true);
+    }
 }
