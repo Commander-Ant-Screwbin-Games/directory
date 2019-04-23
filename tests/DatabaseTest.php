@@ -58,7 +58,7 @@ class DatabaseTest extends TestCase
         $this->assertTrue(\true);
         $dbh->establishConnection();
         $this->assertTrue(\true);
-        $this->assertTrue(($dbh->getDriver == 'mysql'));
+        $this->assertTrue(($dbh->getDriver() == 'mysql'));
         $dbh->closeConnection();
     }
 
