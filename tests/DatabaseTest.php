@@ -98,7 +98,7 @@ class DatabaseTest extends TestCase
         $dbh = new ConnectionManager([
             'database_dsn'  => 'mysql:host=localhost;dbname=travis_ci_test',
             'database_user' => 'travis'
-        ]);
+        ], \false);
         $conn = $dbh->getConnectionString();
     }
 
