@@ -88,5 +88,40 @@ class DatabaseTest extends TestCase
         $database = new SQLDatabaseHandler($dbh);
         $this->assertTrue(\true);
     }
+
+    /**
+     * @return void Returns nothing.
+     */
+    public function testSqlHandlerMethods(): void
+    {
+        $dbh = new ConnectionManager([
+            'database_dsn'  => 'mysql:host=localhost;dbname=travis_ci_test',
+            'database_user' => 'travis'
+        ]);
+        $dbh->establishConnection();
+        $dbh->connectionString->query('CREATE TABLE Persons (
+            PersonID int,
+            LastName varchar(255),
+            FirstName varchar(255),
+            Address varchar(255),
+            City varchar(255) 
+        );');
+        $dbh->closeConnectionString();
+        $this->assertTrue(\true);
+        $database = new SQLDatabaseHandler($dbh);
+        $this->assertTrue(\true);
+        $database->insert('Persons', [
+            'PersonID'  => 1,
+            'LastName'  => 'English',
+            'FirstName' => 'Nicholas',
+            'Address'   => '%somedata%',
+            'City'      => '%somedata%'
+        ]);
+        $result = $database->select(
+            "SELECT * FROM `Persons` WHERE `LastName` = :ln",
+            array('ln' => 'English')
+        );
+        $this->assertTrue((\count($result) > 0));
+    }
     
 }
