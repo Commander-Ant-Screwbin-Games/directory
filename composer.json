@@ -7,13 +7,15 @@
     "require": {
         "php": ">=7.3",
         "symfony/options-resolver": "^4.2",
-        "symfony/cache": "^4.2",
         "symfony/polyfill-php72": "^1.11",
         "symfony/polyfill-php73": "^1.11"
     },
     "require-dev": {
         "vimeo/psalm": "^3",
         "phpunit/phpunit": "^8.1"
+    },
+    "suggest": {
+        "symfony/cache": "To cache sql queries."
     },
     "autoload": {
         "psr-4": {
