@@ -95,7 +95,7 @@ class SQLDatabaseHandler implements SQLDatabaseHandlerInterface
     public function update(string $table, array $data, string $where, array $whereBindArray = array()): void
     {
         \ksort($data);
-        $fieldDetails = \null;
+        $fieldDetails = "";
         foreach ($data as $key => $value) {
             $fieldDetails .= "`$key`=:$key,";
         }
