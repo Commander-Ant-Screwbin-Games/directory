@@ -58,7 +58,7 @@ interface ConnectionManagerInterface
      *
      * @return string The database driver.
      */
-    public function getDriver(): string
+    public function getDriver(): string;
 
     /**
      * Close the connection string.
