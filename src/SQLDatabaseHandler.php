@@ -121,6 +121,8 @@ class SQLDatabaseHandler implements SQLDatabaseHandlerInterface
      * @param int|null $limit How much data.
      *
      * @return void Returns nothing.
+     *
+     * @codeCoverageIgnore
      */
     public function delete(string $table, string $where, array $bind = array(), int $limit = \null): void
     {
