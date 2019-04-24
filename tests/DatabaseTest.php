@@ -73,4 +73,19 @@ class DatabaseTest extends TestCase
         ]);
         $dbh->establishConnection();
     }
+
+    /**
+     * @return void Returns nothing.
+     */
+    public function testSqlHandlerConstructorAndDestructor(): void
+    {
+        $dbh = new ConnectionManager([
+            'database_dsn'  => 'mysql:host=localhost;dbname=travis_ci_test',
+            'database_user' => 'travis'
+        ]);
+        $this->assertTrue(\true);
+        $database = new SQLDatabaseHandler($dbh);
+        $this->assertTrue(\true);
+    }
+    
 }
