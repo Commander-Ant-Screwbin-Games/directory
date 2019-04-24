@@ -10,6 +10,7 @@ namespace Directory\Test;
 
 use Kooser\Directory\ConnectionManager;
 use Kooser\Directory\Exception\ConnectionFailedException;
+use Kooser\Directory\SQLDatabaseHandler;
 
 use PHPUnit\Framework\TestCase;
 
