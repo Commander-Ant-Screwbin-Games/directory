@@ -139,7 +139,7 @@ class DatabaseTest extends TestCase
             array("ln" => 'Kooser')
         );
         $result = $database->select(
-            "SELECT * FROM `Persons` WHERE `LastName` = :fn",
+            "SELECT * FROM `Persons` WHERE `LastName` = :ln",
             array('ln' => 'Kooser')
         );
         $this->assertTrue(!(\count($result) > 0));
