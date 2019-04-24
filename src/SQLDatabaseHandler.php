@@ -10,8 +10,6 @@ namespace Kooser\Directory;
 
 /**
  * The sql database handler.
- *
- * @codeCoverageIgnore
  */
 class SQLDatabaseHandler implements SQLDatabaseHandlerInterface
 {
