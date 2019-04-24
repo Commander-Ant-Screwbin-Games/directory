@@ -22,14 +22,13 @@ class SQLDatabaseHandler implements SQLDatabaseHandlerInterface
     /**
      * SQLDatabase handler constructor.
      *
-     * @param \Kooser\Directory\ConnectionManagerInterface $connectionManager The connection manager.
+     * @param \Kooser\Directory\ConnectionManagerInterface|null $connectionManager The connection manager.
      *
      * @return void Returns nothing.
      */
-    public function __construct(ConnectionManagerInterface $connectionManager)
+    public function __construct(ConnectionManagerInterface $connectionManager = \null)
     {
         $this->setConnectionManager($connectionManager);
-        $this->connectionManager->establishConnection();
     }
 
     /**
@@ -42,6 +41,7 @@ class SQLDatabaseHandler implements SQLDatabaseHandlerInterface
     public function setConnectionManager(ConnectionManagerInterface $connectionManager): SQLDatabaseHandlerInterface
     {
         $this->connectionManager = $connectionManager;
+        $this->connectionManager->establishConnection();
         return $this;
     }
 
@@ -122,7 +122,7 @@ class SQLDatabaseHandler implements SQLDatabaseHandlerInterface
      *
      * @return void Returns nothing.
      */
-    public function delete(string $table, string $where, array $bind = array(), $limit = \null): void
+    public function delete(string $table, string $where, array $bind = array(), int $limit = \null): void
     {
         $query = "DELETE FROM $table WHERE $where";
         if ($limit) {
