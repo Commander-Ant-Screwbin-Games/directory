@@ -125,22 +125,22 @@ class DatabaseTest extends TestCase
         $database->update(
             'Persons',
             array('LastName' => 'English'),
-            "`LastName` = :ln",
-            array("ln" => 'Kooser')
+            "`FirstName` = :fn",
+            array("fn" => 'Kooser')
         );
         $result = $database->select(
-            "SELECT * FROM `Persons` WHERE `LastName` = :ln",
-            array('ln' => 'English')
+            "SELECT * FROM `Persons` WHERE `FirstName` = :fn",
+            array('fn' => 'Nicholas')
         );
         $this->assertTrue(!(\count($result) > 0));
         $database->delete(
             'Persons',
-            "`LastName` = :ln",
-            array("ln" => 'Kooser')
+            "`FirstName` = :fn",
+            array("fn" => 'Kooser')
         );
         $result = $database->select(
-            "SELECT * FROM `Persons` WHERE `LastName` = :ln",
-            array('ln' => 'Kooser')
+            "SELECT * FROM `Persons` WHERE `FirstName` = :fn",
+            array('fn' => 'Kooser')
         );
         $this->assertTrue(!(\count($result) > 0));
     }
