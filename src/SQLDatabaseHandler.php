@@ -28,7 +28,9 @@ class SQLDatabaseHandler implements SQLDatabaseHandlerInterface
      */
     public function __construct(ConnectionManagerInterface $connectionManager = \null)
     {
-        $this->setConnectionManager($connectionManager);
+        if (!\is_null($connectionManager)) {
+            $this->setConnectionManager($connectionManager);
+        }
     }
 
     /**
