@@ -66,7 +66,7 @@ class SQLDatabaseHandler implements SQLDatabaseHandlerInterface
      * Insert data to database.
      *
      * @param string $table A name of table to insert into.
-     * @param string $data  An associative array.
+     * @param array  $data  An associative array.
      *
      * @return void Returns nothing.
      */
