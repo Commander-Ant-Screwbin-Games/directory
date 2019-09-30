@@ -11,7 +11,7 @@ namespace Kooser\Directory;
 /**
  * The sql database handler.
  */
-class SQLDatabaseHandler implements SQLDatabaseHandlerInterface
+final class SQLDatabaseHandler implements SQLDatabaseHandlerInterface
 {
 
     /** @var mixed $connectionManager The connection manager. */
