@@ -99,13 +99,15 @@ class DatabaseTest extends TestCase
             'database_user' => 'travis'
         ]);
         $dbh->establishConnection();
-        $dbh->connectionString->query('CREATE TABLE Persons (
+        $conn = $dbh->getConnectionString();
+        $conn->query('CREATE TABLE Persons (
             PersonID int,
             LastName varchar(255),
             FirstName varchar(255),
             Address varchar(255),
             City varchar(255) 
         );');
+        $conn = \null;
         $dbh->closeConnectionString();
         $this->assertTrue(\true);
         $database = new SQLDatabaseHandler($dbh);
