@@ -45,7 +45,7 @@ interface ConnectionManagerInterface
     /**
      * Establish a new database connection.
      *
-     * @throws ConnectionFailedException If the connection manager could not open the connection.
+     * @throws Exception\ConnectionFailedException If the connection manager could not open the connection.
      *
      * @return void Returns nothing.
      *
@@ -66,4 +66,11 @@ interface ConnectionManagerInterface
      * @return void Returns nothing.
      */
     public function closeConnectionString(): void;
+
+    /**
+     * Get the connection string.
+     *
+     * @return mixed Get the connection string.
+     */
+    public function getConnectionString();
 }
