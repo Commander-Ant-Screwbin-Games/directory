@@ -17,6 +17,9 @@ class SQLDatabaseHandler implements SQLDatabaseHandlerInterface
     /** @var mixed $connectionManager The connection manager. */
     protected $connectionManager = \null;
 
+    /** @var mixed $connectionString The connection string. */
+    protected $connectionString = \null;
+
     /**
      * SQLDatabase handler constructor.
      *
@@ -42,6 +45,7 @@ class SQLDatabaseHandler implements SQLDatabaseHandlerInterface
     {
         $this->connectionManager = $connectionManager;
         $this->connectionManager->establishConnection();
+        $this->connectionString = $this->connectionManager->getConnectionString();
         return $this;
     }
 
@@ -56,7 +60,7 @@ class SQLDatabaseHandler implements SQLDatabaseHandlerInterface
      */
     public function select(string $sql, array $array = array(), int $fetchMode = \PDO::FETCH_ASSOC): array
     {
-        $sth = $this->connectionManager->connectionString->prepare($sql);
+        $sth = $this->connectionString->prepare($sql);
         foreach ($array as $key => $value) {
             $sth->bindValue(":$key", $value);
         }
@@ -77,7 +81,7 @@ class SQLDatabaseHandler implements SQLDatabaseHandlerInterface
         \ksort($data);
         $fieldNames = \implode('`, `', \array_keys($data));
         $fieldValues = ':' . \implode(', :', \array_keys($data));
-        $sth = $this->connectionManager->connectionString->prepare("INSERT INTO $table (`$fieldNames`) VALUES ($fieldValues)");
+        $sth = $this->connectionString->prepare("INSERT INTO $table (`$fieldNames`) VALUES ($fieldValues)");
         foreach ($data as $key => $value) {
             $sth->bindValue(":$key", $value);
         }
@@ -102,7 +106,7 @@ class SQLDatabaseHandler implements SQLDatabaseHandlerInterface
             $fieldDetails .= "`$key`=:$key,";
         }
         $fieldDetails = \rtrim($fieldDetails, ',');
-        $sth = $this->connectionManager->connectionString->prepare("UPDATE $table SET $fieldDetails WHERE $where");
+        $sth = $this->connectionString->prepare("UPDATE $table SET $fieldDetails WHERE $where");
         foreach ($data as $key => $value) {
             $sth->bindValue(":$key", $value);
         }
@@ -130,7 +134,7 @@ class SQLDatabaseHandler implements SQLDatabaseHandlerInterface
         if ($limit) {
             $query .= " LIMIT $limit";
         }
-        $sth = $this->connectionManager->connectionString->prepare($query);
+        $sth = $this->connectionString->prepare($query);
         foreach ($bind as $key => $value) {
             $sth->bindValue(":$key", $value);
         }
@@ -145,5 +149,6 @@ class SQLDatabaseHandler implements SQLDatabaseHandlerInterface
     public function __destruct()
     {
         $this->connectionManager->closeConnectionString();
+        $this->connectionString = \null;
     }
 }
