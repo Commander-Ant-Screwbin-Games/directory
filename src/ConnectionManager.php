@@ -26,7 +26,7 @@ class ConnectionManager implements ConnectionManagerInterface
     protected $exceptions = \true;
 
     /** @var mixed $connectionString The pdo connection string. */
-    public $connectionString = \null;
+    protected $connectionString = \null;
 
     /**
      * Construct a new database connection.
