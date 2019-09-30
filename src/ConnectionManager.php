@@ -13,7 +13,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 /**
  * Create a new database connection.
  */
-class ConnectionManager implements ConnectionManagerInterface
+final class ConnectionManager implements ConnectionManagerInterface
 {
 
     /** @var string $driver The database driver. */
