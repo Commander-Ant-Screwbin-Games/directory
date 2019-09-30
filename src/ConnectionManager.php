@@ -73,7 +73,7 @@ class ConnectionManager implements ConnectionManagerInterface
     /**
      * Establish a new database connection.
      *
-     * @throws ConnectionFailedException If the connection manager could not open the connection.
+     * @throws Exception\ConnectionFailedException If the connection manager could not open the connection.
      *
      * @return void Returns nothing.
      *
@@ -128,6 +128,16 @@ class ConnectionManager implements ConnectionManagerInterface
     public function closeConnectionString(): void
     {
         $this->connectionString = \null;
+    }
+
+    /**
+     * Get the connection string.
+     *
+     * @return mixed Get the connection string.
+     */
+    public function getConnectionString()
+    {
+        return $this->connectionString;
     }
 
     /**
