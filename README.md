@@ -71,37 +71,37 @@ $database->insert('Persons', [
 
 // Get the record.
 $result = $database->select(
-    "SELECT * FROM `Persons` WHERE `LastName` = :ln",
-    array('ln' => 'English')
+    "SELECT * FROM Persons WHERE LastName = :ln",
+    ['ln' => 'English']
 );
 var_dump($result);
 
 // Update the record.
 $database->update(
     'Persons',
-    array('LastName' => 'Kooser'),
+    ['LastName' => 'Kooser'],
     "`LastName` = :ln",
-    array("ln" => 'English')
+    ["ln" => 'English']
 );
 
 // Get the record again.
 $result = $database->select(
-    "SELECT * FROM `Persons` WHERE `LastName` = :ln",
-    array('ln' => 'English')
+    "SELECT * FROM Persons WHERE LastName = :ln",
+    ['ln' => 'English']
 );
 var_dump($result);
 
 // Delete the record.
 $database->delete(
     'Persons',
-    "`LastName` = :ln",
-    array("ln" => 'Kooser')
+    "LastName = :ln",
+    ["ln" => 'Kooser']
 );
 
 // Try to get the record.
 $result = $database->select(
-    "SELECT * FROM `Persons` WHERE `LastName` = :ln",
-    array('ln' => 'Kooser')
+    "SELECT * FROM Persons WHERE LastName = :ln",
+    ['ln' => 'Kooser']
 );
 var_dump($result);
 
