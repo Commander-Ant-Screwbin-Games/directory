@@ -80,7 +80,7 @@ var_dump($result);
 $database->update(
     'Persons',
     ['LastName' => 'Kooser'],
-    "`LastName` = :ln",
+    "LastName = :ln",
     ["ln" => 'English']
 );
 
