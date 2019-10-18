@@ -19,16 +19,21 @@ final class CacheStatement implements CacheStatementInterface
     /** @var \Symfony\Component\Cache\Adapter\AdapterInterface $cache The cache handler. */
     protected $cache;
 
+    /** @var \Kooser\Framework\Directory $dbh The database handler. */
+    protected $dbh;
+
     /**
      * Construct a new cache statement handler.
      *
      * @param \Symfony\Component\Cache\Adapter\AdapterInterface $cacheHandler The cache handler.
+     * @param \Kooser\Framework\Directory                       $dbh          The database handler.
      *
      * @return void Returns nothing.
      */
-    public function __construct(AdapterInterface $cacheHandler)
+    public function __construct(AdapterInterface $cacheHandler, SQLDatabaseHandler $dbh)
     {
         $this->cache = $cacheHandler;
+        $this->dbh = $dbh;
     }
 
     /**
