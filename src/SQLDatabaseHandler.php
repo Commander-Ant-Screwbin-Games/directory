@@ -3,10 +3,10 @@ declare(strict_types=1);
 /**
  * Kooser Directory - A PDO wrapper for secure connections.
  * 
- * @package Kooser\Directory.
+ * @package Kooser\Framework\Directory.
  */
 
-namespace Kooser\Directory;
+namespace Kooser\Framework\Directory;
 
 /**
  * The sql database handler.
@@ -23,7 +23,7 @@ final class SQLDatabaseHandler implements SQLDatabaseHandlerInterface
     /**
      * SQLDatabase handler constructor.
      *
-     * @param \Kooser\Directory\ConnectionManagerInterface|null $connectionManager The connection manager.
+     * @param \Kooser\Framework\Directory\ConnectionManagerInterface|null $connectionManager The connection manager.
      *
      * @return void Returns nothing.
      */
@@ -37,9 +37,9 @@ final class SQLDatabaseHandler implements SQLDatabaseHandlerInterface
     /**
      * Set the connection manager.
      *
-     * @param \Kooser\Directory\ConnectionManagerInterface $connectionManager The connection manager.
+     * @param \Kooser\Framework\Directory\ConnectionManagerInterface $connectionManager The connection manager.
      *
-     * @return \Kooser\Directory\SQLDatabaseHandlerInterface Return this class.
+     * @return \Kooser\Framework\Directory\SQLDatabaseHandlerInterface Return this class.
      */
     public function setConnectionManager(ConnectionManagerInterface $connectionManager): SQLDatabaseHandlerInterface
     {
