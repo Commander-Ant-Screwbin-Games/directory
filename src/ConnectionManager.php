@@ -3,10 +3,10 @@ declare(strict_types=1);
 /**
  * Kooser Directory - A PDO wrapper for secure connections.
  * 
- * @package Kooser\Directory.
+ * @package Kooser\Framework\Directory.
  */
 
-namespace Kooser\Directory;
+namespace Kooser\Framework\Directory;
 
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -47,7 +47,7 @@ final class ConnectionManager implements ConnectionManagerInterface
      *
      * @param array $options The database connection options.
      *
-     * @return \Kooser\Directory\ConnectionManagerInterface Returns the connection manager.
+     * @return \Kooser\Framework\Directory\ConnectionManagerInterface Returns the connection manager.
      */
     public function setOptions(array $options = []): ConnectionManagerInterface
     {
@@ -62,7 +62,7 @@ final class ConnectionManager implements ConnectionManagerInterface
      *
      * @param bool $exceptions Should we utilize exceptions.
      *
-     * @return \Kooser\Directory\ConnectionManagerInterface Returns the connection manager.
+     * @return \Kooser\Framework\Directory\ConnectionManagerInterface Returns the connection manager.
      */
     public function setExceptions(bool $exceptions = \true): ConnectionManagerInterface
     {
