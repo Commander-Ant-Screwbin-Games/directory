@@ -107,7 +107,7 @@ var_dump($result);
 
 ```
 
-We supprt other database connections like `PgSQL`, and `SQLite`.
+We supprt other database connections like `Informix`, `Oracle`, `PgSQL`, and `SQLite`.
 
 ## Contributing
 
