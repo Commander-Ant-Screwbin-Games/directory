@@ -20,10 +20,11 @@ interface CacheStatementInterface
      * Construct a new cache statement handler.
      *
      * @param \Symfony\Component\Cache\Adapter\AdapterInterface $cacheHandler The cache handler.
+     * @param \Kooser\Framework\Directory                       $dbh          The database handler.
      *
      * @return void Returns nothing.
      */
-    public function __construct(AdapterInterface $cacheHandler);
+    public function __construct(AdapterInterface $cacheHandler, SQLDatabaseHandler $dbh);
 
     /**
      * Select data.
