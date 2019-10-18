@@ -8,9 +8,9 @@ declare(strict_types=1);
 
 namespace Directory\Test;
 
-use Kooser\Directory\ConnectionManager;
-use Kooser\Directory\Exception\ConnectionFailedException;
-use Kooser\Directory\SQLDatabaseHandler;
+use Kooser\Framework\Directory\ConnectionManager;
+use Kooser\Framework\Directory\Exception\ConnectionFailedException;
+use Kooser\Framework\Directory\SQLDatabaseHandler;
 
 use PHPUnit\Framework\TestCase;
 
