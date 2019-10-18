@@ -40,7 +40,7 @@ final class CacheStatement implements CacheStatementInterface
      *
      * @return array The selected data.
      */
-    public function select(string $sql, array $array = array(), int $fetchMode \PDO::FETCH_ASSOC): void
+    public function select(string $sql, array $array = array(), int $fetchMode = \PDO::FETCH_ASSOC): void
     {
         $encodeParams = \json_encode($array);
         $statement = $this->cache->getItem("kooser-directory.{$sql}.{$encodeParams}.{$fetchMode}");
