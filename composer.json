@@ -13,7 +13,7 @@
     "require-dev": {
         "vimeo/psalm": "^3",
         "phpunit/phpunit": "^8.1",
-        "symfony/cache": "^4.3",
+        "symfony/cache": "^4.3"
     },
     "suggest": {
         "symfony/cache": "To cache sql queries."
