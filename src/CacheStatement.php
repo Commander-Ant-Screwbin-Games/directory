@@ -16,17 +16,17 @@ use Symfony\Component\Cache\Adapter\AdapterInterface;
 final class CacheStatement implements CacheStatementInterface
 {
 
-    /** @var \Symfony\Component\Cache\Adapter\AdapterInterface $cache The cache handler. */
+    /** @var \Symfony\Component\Cache\Adapter\AdapterInterface|null $cache The cache handler. */
     protected $cache;
 
-    /** @var \Kooser\Framework\Directory $dbh The database handler. */
+    /** @var \Kooser\Framework\Directory\SQLDatabaseHandler|null $dbh The database handler. */
     protected $dbh;
 
     /**
      * Construct a new cache statement handler.
      *
      * @param \Symfony\Component\Cache\Adapter\AdapterInterface $cacheHandler The cache handler.
-     * @param \Kooser\Framework\Directory                       $dbh          The database handler.
+     * @param \Kooser\Framework\Directory\SQLDatabaseHandler    $dbh          The database handler.
      *
      * @return void Returns nothing.
      */
