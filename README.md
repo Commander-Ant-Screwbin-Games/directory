@@ -24,8 +24,8 @@ Using the directory is very simple. Here is an example below.
 ```php
 <?php
 
-use Kooser\Directory\ConnectionManager;
-use Kooser\Directory\SQLDatabaseHandler;
+use Kooser\Framework\Directory\ConnectionManager;
+use Kooser\Framework\Directory\SQLDatabaseHandler;
 
 // Require the composer autoloader.
 require_once __DIR__ . '/vendor/autoload.php';
