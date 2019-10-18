@@ -1,5 +1,5 @@
-[![Travis (.org) branch](https://img.shields.io/travis/Kooser6/Directory/master.svg)](https://travis-ci.org/Kooser6/Directory)
-[![Coveralls github branch](https://img.shields.io/coveralls/github/Kooser6/Directory/master.svg)](https://coveralls.io/github/Kooser6/Directory?branch=master)
+[![Travis (.org) branch](https://img.shields.io/travis/kooser-framework/directory/master.svg)](https://travis-ci.org/kooser-framework/directory)
+[![Coveralls github branch](https://img.shields.io/coveralls/github/kooser-framework/directory/master.svg)](https://coveralls.io/github/kooser-framework/directory?branch=master)
 
 # Directory
 
