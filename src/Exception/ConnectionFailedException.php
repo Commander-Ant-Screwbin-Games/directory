@@ -3,10 +3,10 @@ declare(strict_types=1);
 /**
  * Kooser Directory - A PDO wrapper for secure connections.
  * 
- * @package Kooser\Directory.
+ * @package Kooser\Framework\Directory.
  */
 
-namespace Kooser\Directory\Exception;
+namespace Kooser\Framework\Directory\Exception;
 
 use Exception;
 
