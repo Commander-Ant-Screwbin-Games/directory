@@ -55,7 +55,7 @@ final class CacheStatement implements CacheStatementInterface
             $this->cache->save($statement);
             return $res;
         }
-        $encodedRes = $productsCount->get();
+        $encodedRes = $statement->get();
         return \json_decode($encodedRes);
     }
 }
