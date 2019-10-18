@@ -48,8 +48,10 @@ final class CacheStatement implements CacheStatementInterface
     public function select(string $sql, array $array = array(), int $fetchMode = \PDO::FETCH_ASSOC)
     {
         $encodeParams = \json_encode($array);
+        /** @psalm-suppress PossiblyNullReference **/
         $statement = $this->cache->getItem("kooser-directory.{$sql}.{$encodeParams}.{$fetchMode}");
         if (!$statement->isHit()) {
+            /** @psalm-suppress PossiblyNullReference **/
             $res = $this->dbh->select($sql, $array, $fetchMode);
             $statement->set(\json_encode($res));
             $this->cache->save($statement);
