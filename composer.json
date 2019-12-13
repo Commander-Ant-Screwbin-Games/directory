@@ -1,26 +1,26 @@
 {
-    "name": "kooser/directory",
+    "name": "commander-ant-screwbin-games/directory",
     "description": "A PDO wrapper for secure connections.",
-    "homepage": "https://kooser-framework.github.io/directory/",
+    "homepage": "https://github.com/Commander-Ant-Screwbin-Games",
     "keywords": [],
     "license": "MIT",
     "require": {
         "php": ">=7.3",
-        "symfony/options-resolver": "^4.3",
-        "symfony/polyfill-php72": "^1.12",
-        "symfony/polyfill-php73": "^1.12"
+        "symfony/options-resolver": "^5.0",
+        "symfony/polyfill-php72": "^1.13",
+        "symfony/polyfill-php73": "^1.13"
     },
     "require-dev": {
         "vimeo/psalm": "^3",
-        "phpunit/phpunit": "^8.1",
-        "symfony/cache": "^4.3"
+        "phpunit/phpunit": "^8.4",
+        "symfony/cache": "^5.0"
     },
     "suggest": {
         "symfony/cache": "To cache sql queries."
     },
     "autoload": {
         "psr-4": {
-            "Kooser\\Framework\\Directory\\": "./src"
+            "Directory\\": "./src"
         }
     },
     "config": {
