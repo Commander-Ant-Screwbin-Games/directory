@@ -45,7 +45,7 @@ final class CacheStatement implements CacheStatementInterface
      * Construct a new cache statement handler.
      *
      * @param \Symfony\Component\Cache\Adapter\AdapterInterface $cacheHandler The cache handler.
-     * @param \Directory\SQLDatabaseHandler    $dbh          The database handler.
+     * @param \Directory\SQLDatabaseHandler                     $dbh          The database handler.
      *
      * @return void Returns nothing.
      */
@@ -64,7 +64,7 @@ final class CacheStatement implements CacheStatementInterface
      *
      * @return array The selected data.
      */
-    public function select(string $sql, array $array = array(), int $fetchMode = \PDO::FETCH_ASSOC)
+    public function select(string $sql, array $array = [], int $fetchMode = \PDO::FETCH_ASSOC)
     {
         $encodeParams = \json_encode($array);
         /** @psalm-suppress PossiblyNullReference **/
