@@ -68,7 +68,7 @@ final class CacheStatement implements CacheStatementInterface
     {
         $encodeParams = \json_encode($array);
         /** @psalm-suppress PossiblyNullReference **/
-        $statement = $this->cache->getItem(str_replace(["{", "}"], '', "kooser-directory.{$sql}.{$encodeParams}.{$fetchMode}");
+        $statement = $this->cache->getItem(\str_replace(["{", "}"], '', "kooser-directory.{$sql}.{$encodeParams}.{$fetchMode}");
         if (!$statement->isHit()) {
             /** @psalm-suppress PossiblyNullReference **/
             $res = $this->dbh->select($sql, $array, $fetchMode);
@@ -77,6 +77,6 @@ final class CacheStatement implements CacheStatementInterface
             return $res;
         }
         $encodedRes = $statement->get();
-        return \json_decode('{' . $encodedRes . '}', true);
+        return \json_decode('{' . $encodedRes . '}', \true);
     }
 }
