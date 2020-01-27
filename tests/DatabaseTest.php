@@ -8,9 +8,12 @@ declare(strict_types=1);
 
 namespace Directory\Test;
 
+use Directory\CacheStatement;
 use Directory\ConnectionManager;
 use Directory\Exception\ConnectionFailedException;
 use Directory\SQLDatabaseHandler;
+
+use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 
 use PHPUnit\Framework\TestCase;
 
@@ -30,6 +33,47 @@ class DatabaseTest extends TestCase
             'database_user' => 'travis'
         ]);
         $this->assertTrue(\true);
+    }
+
+    public function testCacheStatement()
+    {
+        $dbh = new ConnectionManager([
+            'database_dsn'  => 'mysql:host=localhost;dbname=travis_ci_test',
+            'database_user' => 'travis'
+        ]);
+        $this->assertTrue(\true);
+        $dbh->establishConnection();
+        $conn = $dbh->getConnectionString();
+        $conn->query('CREATE TABLE Persons (
+            PersonID int,
+            LastName varchar(255),
+            FirstName varchar(255),
+            Address varchar(255),
+            City varchar(255) 
+        );');
+        $conn = \null;
+        $dbh->closeConnectionString();
+        $this->assertTrue(\true);
+        $database = new SQLDatabaseHandler($dbh);
+        $this->assertTrue(\true);
+        $database->insert('Persons', [
+            'PersonID'  => 1,
+            'LastName'  => 'English',
+            'FirstName' => 'Nicholas',
+            'Address'   => '%somedata%',
+            'City'      => '%somedata%'
+        ]);
+        $this->assertTrue(\true);
+        $adapter = new FilesystemAdapter('directory', 0, __DIR__ . '/../cache');
+        $this->cacheStatement = new CacheStatement($adapter, $database);
+        $resultA = $this->cacheStatement->select('SELECT * FROM `Persons` WHERE `LastName` = :ln', ['ln' => 'English']);
+        $resultB = $this->cacheStatement->select('SELECT * FROM `Persons` WHERE `LastName` = :ln', ['ln' => 'English']);
+        $this->assertTrue($resultA === $resultB);
+        $database->delete(
+            'Persons',
+            "`LastName` = :ln",
+            array("ln" => 'English')
+        );
     }
 
     /**
