@@ -40,11 +40,7 @@ final class SQLDatabaseHandler implements SQLDatabaseHandlerInterface
     protected $connectionString = \null;
 
     /**
-     * SQLDatabase handler constructor.
-     *
-     * @param \Directory\ConnectionManagerInterface|null $connectionManager The connection manager.
-     *
-     * @return void Returns nothing.
+     * {@inheritdoc}
      */
     public function __construct(ConnectionManagerInterface $connectionManager = \null)
     {
@@ -54,11 +50,7 @@ final class SQLDatabaseHandler implements SQLDatabaseHandlerInterface
     }
 
     /**
-     * Set the connection manager.
-     *
-     * @param \Directory\ConnectionManagerInterface $connectionManager The connection manager.
-     *
-     * @return \Directory\SQLDatabaseHandlerInterface Return this class.
+     * {@inheritdoc}
      */
     public function setConnectionManager(ConnectionManagerInterface $connectionManager): SQLDatabaseHandlerInterface
     {
@@ -69,13 +61,7 @@ final class SQLDatabaseHandler implements SQLDatabaseHandlerInterface
     }
 
     /**
-     * Select data.
-     *
-     * @param string $sql       An SQL string.
-     * @param array  $array     Parameters to bind.
-     * @param int    $fetchMode A PDO Fetch mode.
-     *
-     * @return array The selected data.
+     * {@inheritdoc}
      */
     public function select(string $sql, array $array = [], int $fetchMode = \PDO::FETCH_ASSOC): array
     {
@@ -88,12 +74,7 @@ final class SQLDatabaseHandler implements SQLDatabaseHandlerInterface
     }
 
     /**
-     * Insert data to database.
-     *
-     * @param string $table A name of table to insert into.
-     * @param array  $data  An associative array.
-     *
-     * @return void Returns nothing.
+     * {@inheritdoc}
      */
     public function insert(string $table, array $data): void
     {
@@ -108,14 +89,7 @@ final class SQLDatabaseHandler implements SQLDatabaseHandlerInterface
     }
 
     /**
-     * Update data.
-     *
-     * @param string $table          A name of table to insert into.
-     * @param array  $data           An associative array where keys have the same name as database columns.
-     * @param string $where          The WHERE query part.
-     * @param array  $whereBindArray Parameters to bind to where part of query.
-     *
-     * @return void Returns nothing.
+     * {@inheritdoc}
      */
     public function update(string $table, array $data, string $where, array $whereBindArray = array()): void
     {
@@ -136,14 +110,7 @@ final class SQLDatabaseHandler implements SQLDatabaseHandlerInterface
     }
 
     /**
-     * Delete data.
-     *
-     * @param string   $table The table.
-     * @param string   $where The where statement.
-     * @param array    $bind  The data to bind.
-     * @param int|null $limit How much data.
-     *
-     * @return void Returns nothing.
+     * {@inheritdoc}
      *
      * @codeCoverageIgnore
      */
@@ -161,9 +128,7 @@ final class SQLDatabaseHandler implements SQLDatabaseHandlerInterface
     }
 
     /**
-     * Close the connection after use.
-     *
-     * @return void Returns nothing.
+     * {@inheritdoc}
      */
     public function __destruct()
     {

@@ -42,12 +42,7 @@ final class CacheStatement implements CacheStatementInterface
     protected $dbh;
 
     /**
-     * Construct a new cache statement handler.
-     *
-     * @param \Symfony\Component\Cache\Adapter\AdapterInterface $cacheHandler The cache handler.
-     * @param \Directory\SQLDatabaseHandler                     $dbh          The database handler.
-     *
-     * @return void Returns nothing.
+     * {@inheritdoc}
      */
     public function __construct(AdapterInterface $cacheHandler, SQLDatabaseHandler $dbh)
     {
@@ -56,13 +51,7 @@ final class CacheStatement implements CacheStatementInterface
     }
 
     /**
-     * Select data.
-     *
-     * @param string $sql       An SQL string.
-     * @param array  $array     Parameters to bind.
-     * @param int    $fetchMode A PDO Fetch mode.
-     *
-     * @return array The selected data.
+     * {@inheritdoc}
      */
     public function select(string $sql, array $array = [], int $fetchMode = \PDO::FETCH_ASSOC)
     {

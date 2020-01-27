@@ -47,12 +47,7 @@ final class ConnectionManager implements ConnectionManagerInterface
     protected $connectionString = \null;
 
     /**
-     * Construct a new database connection.
-     *
-     * @param array $options    The database connection options.
-     * @param bool  $exceptions Should we utilize exceptions.
-     *
-     * @return void Returns nothing.
+     * {@inheritdoc}
      */
     public function __construct(array $options = [], bool $exceptions = \true)
     {
@@ -61,11 +56,7 @@ final class ConnectionManager implements ConnectionManagerInterface
     }
 
     /**
-     * Set the database connection options.
-     *
-     * @param array $options The database connection options.
-     *
-     * @return \Directory\ConnectionManagerInterface Returns the connection manager.
+     * {@inheritdoc}
      */
     public function setOptions(array $options = []): ConnectionManagerInterface
     {
@@ -76,11 +67,7 @@ final class ConnectionManager implements ConnectionManagerInterface
     }
 
     /**
-     * Set the exceptions param.
-     *
-     * @param bool $exceptions Should we utilize exceptions.
-     *
-     * @return \Directory\ConnectionManagerInterface Returns the connection manager.
+     * {@inheritdoc}
      */
     public function setExceptions(bool $exceptions = \true): ConnectionManagerInterface
     {
@@ -89,11 +76,7 @@ final class ConnectionManager implements ConnectionManagerInterface
     }
 
     /**
-     * Establish a new database connection.
-     *
-     * @throws Exception\ConnectionFailedException If the connection manager could not open the connection.
-     *
-     * @return void Returns nothing.
+     * {@inheritdoc}
      *
      * @codeCoverageIgnore
      */
@@ -129,9 +112,7 @@ final class ConnectionManager implements ConnectionManagerInterface
     }
 
     /**
-     * Return the database driver.
-     *
-     * @return string The database driver.
+     * {@inheritdoc}
      */
     public function getDriver(): string
     {
@@ -139,9 +120,7 @@ final class ConnectionManager implements ConnectionManagerInterface
     }
 
     /**
-     * Close the connection string.
-     *
-     * @return void Returns nothing.
+     * {@inheritdoc}
      */
     public function closeConnectionString(): void
     {
@@ -149,9 +128,7 @@ final class ConnectionManager implements ConnectionManagerInterface
     }
 
     /**
-     * Get the connection string.
-     *
-     * @return mixed Get the connection string.
+     * {@inheritdoc}
      */
     public function getConnectionString()
     {
