@@ -62,9 +62,7 @@ class DatabaseTest extends TestCase
         $adapter = new FilesystemAdapter('directory', 0, __DIR__ . '/../cache');
         $this->cacheStatement = new CacheStatement($adapter, $database);
         $resultA = $this->cacheStatement->select('SELECT * FROM `Persons` WHERE `LastName` = :ln', ['ln' => 'English']);
-        var_dump($resultA);
         $resultB = $this->cacheStatement->select('SELECT * FROM `Persons` WHERE `LastName` = :ln', ['ln' => 'English']);
-        var_dump($resultB);
         $this->assertTrue($resultA === $resultB);
         $database->delete(
             'Persons',
