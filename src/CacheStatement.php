@@ -72,11 +72,10 @@ final class CacheStatement implements CacheStatementInterface
         if (!$statement->isHit()) {
             /** @psalm-suppress PossiblyNullReference **/
             $res = $this->dbh->select($sql, $array, $fetchMode);
-            $statement->set(\json_encode($res));
+            $statement->set($res);
             $this->cache->save($statement);
             return $res;
         }
-        $encodedRes = $statement->get();
-        return \json_decode('{' . $encodedRes . '}', \true);
+        return $statement->get();
     }
 }
