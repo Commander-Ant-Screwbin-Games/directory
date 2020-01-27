@@ -34,7 +34,6 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
  */
 final class ConnectionManager implements ConnectionManagerInterface
 {
-
     /** @var string $driver The database driver. */
     private $driver = '';
 
