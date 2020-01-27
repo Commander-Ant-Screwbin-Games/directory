@@ -1,12 +1,31 @@
-<?php
-declare(strict_types=1);
+<?php declare(strict_types=1);
 /**
- * Kooser Directory - A PDO wrapper for secure connections.
+ * Directory - A PDO wrapper for secure connections.
+ *
+ * @license MIT License. (https://github.com/Commander-Ant-Screwbin-Games/directory/blob/master/license)
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
  * 
- * @package Kooser\Framework\Directory.
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ * https://github.com/Commander-Ant-Screwbin-Games/firecms/tree/master/src/Core
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ *
+ * @package Commander-Ant-Screwbin-Games/directory.
  */
- 
-namespace Kooser\Framework\Directory;
+
+namespace Directory;
 
 /**
  * The sql database handler interface.
@@ -17,7 +36,7 @@ interface SQLDatabaseHandlerInterface
     /**
      * SQLDatabase handler constructor.
      *
-     * @param \Kooser\Framework\Directory\ConnectionManagerInterface|null $connectionManager The connection manager.
+     * @param \Directory\ConnectionManagerInterface|null $connectionManager The connection manager.
      *
      * @return void Returns nothing.
      */
@@ -26,9 +45,9 @@ interface SQLDatabaseHandlerInterface
     /**
      * Set the connection manager.
      *
-     * @param \Kooser\Framework\Directory\ConnectionManagerInterface $connectionManager The connection manager.
+     * @param \Directory\ConnectionManagerInterface $connectionManager The connection manager.
      *
-     * @return \Kooser\Framework\Directory\SQLDatabaseHandlerInterface Return this class.
+     * @return \Directory\SQLDatabaseHandlerInterface Return this class.
      */
     public function setConnectionManager(ConnectionManagerInterface $connectionManager): SQLDatabaseHandlerInterface;
 
