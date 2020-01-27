@@ -1,8 +1,11 @@
 # Directory
 
 [![Build Status](https://travis-ci.org/Commander-Ant-Screwbin-Games/directory.svg?branch=master)](https://travis-ci.org/Commander-Ant-Screwbin-Games/directory)
+[![Latest Stable Version](https://poser.pugx.org/commander-ant-screwbin-games/directory/v/stable)](https://packagist.org/packages/commander-ant-screwbin-games/directory)
+[![Latest Unstable Version](https://poser.pugx.org/commander-ant-screwbin-games/directory/v/unstable)](https://packagist.org/packages/commander-ant-screwbin-games/directory)
+[![License](https://poser.pugx.org/commander-ant-screwbin-games/directory/license)](https://packagist.org/packages/commander-ant-screwbin-games/directory)
 [![Coverage Status](https://coveralls.io/repos/github/Commander-Ant-Screwbin-Games/directory/badge.svg?branch=master)](https://coveralls.io/github/Commander-Ant-Screwbin-Games/directory?branch=master)
-
+[![composer.lock](https://poser.pugx.org/commander-ant-screwbin-games/directory/composerlock)](https://packagist.org/packages/commander-ant-screwbin-games/directory)
 
 ## Installation
 
